@@ -1,7 +1,9 @@
+import allure
 import requests
 
 
 class UserOrder:
+    @allure.step('Создание заказа')
     def user_order(self, color):
         data_order = {
             "firstName": "aNaruto",

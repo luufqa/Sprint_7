@@ -1,7 +1,9 @@
+import allure
 import requests
 
 
 class AuthUser:
+    @allure.step('Логин курьера')
     def auth_user(self, login_pass):
         payload = {
             "login": login_pass[0],
