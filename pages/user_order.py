@@ -1,20 +1,22 @@
 import allure
 import requests
+from data.data_pages import Args, Order
+
 
 
 class UserOrder:
     @allure.step('Создание заказа')
     def user_order(self, color):
         data_order = {
-            "firstName": "aNaruto",
-            "lastName": "eUchiha",
-            "address": "Konoha, 142 apt.",
-            "metroStation": 4,
-            "phone": "+7 800 355 35 35",
-            "rentTime": 5,
-            "deliveryDate": "2020-06-06",
-            "comment": "Saske, come back to Konoha",
+            "firstName": Order.firstName,
+            "lastName": Order.lastName,
+            "address": Order.address,
+            "metroStation": Order.metroStation,
+            "phone": Order.phone,
+            "rentTime": Order.rentTime,
+            "deliveryDate": Order.deliveryDate,
+            "comment": Order.comment,
             "color": [color]
         }
-        response = requests.post('https://qa-scooter.praktikum-services.ru/api/v1/orders', json=data_order)
+        response = requests.post(f'{Args.base_url}{Args.post_user_order}', json=data_order)
         return response

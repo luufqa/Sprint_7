@@ -1,4 +1,6 @@
 # Sprint_7
+Документация с методами - https://qa-scooter.praktikum-services.ru/docs/
+
 test_create_new_courier - создание учетки при разных условиях
 test_create_new_order - создание заказа
 test_delete_user - удаление учетки при разных условиях

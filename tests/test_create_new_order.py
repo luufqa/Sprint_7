@@ -5,7 +5,7 @@ import pytest
 
 class TestNewOrder:
 
-    @allure.title('Тест создания заказа исп.параметризацию для color')
+    @allure.title('Позитивный тест - возможно создать заказ, применяя допустимые значения Color')
     @pytest.mark.parametrize("color, expected", [("BLACK", 201), ("GREY", 201), ("", 201)])
     def test_create_new_order(self, color, expected):
         user_order = UserOrder()

@@ -1,13 +1,13 @@
 import allure
-
-from pages.auth_courier import AuthUser
-from pages.create_new_courier import CreateNewCourier
+from pages.auth_courier import AuthCourier
+from pages.create_courier import CreateCourier
 
 
 class GetUserId:
-    @allure.step('Получение ИД курьера')
+    @allure.step('Получение ИД пользователя')
     def get_user_id(self):
-        auth_user = AuthUser()
-        create_new_courier = CreateNewCourier()
-        login_pass, response = create_new_courier.register_new_courier_and_return_login_password()
-        return auth_user.auth_user(login_pass)
+        auth_user = AuthCourier()
+        create_new_courier = CreateCourier()
+        random_acc = create_new_courier.generate_courier_data()
+        account, response = create_new_courier.create_courier(random_acc)
+        return auth_user.auth_user(account)

@@ -1,13 +1,14 @@
 import allure
 import requests
+from data.data_pages import Args
 
 
-class AuthUser:
-    @allure.step('Логин курьера')
-    def auth_user(self, login_pass):
+class AuthCourier:
+    @allure.step('Авторизация курьера')
+    def auth_user(self, account):
         payload = {
-            "login": login_pass[0],
-            "password": login_pass[1]
+            "login": account[0],
+            "password": account[1]
         }
-        response = requests.post('https://qa-scooter.praktikum-services.ru/api/v1/courier/login', data=payload)
+        response = requests.post(f'{Args.base_url}{Args.post_auth_courier}', data=payload)
         return response
