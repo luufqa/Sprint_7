@@ -7,7 +7,7 @@ def fixture(request):
     account = getattr(request.node.cls, 'account', None)
     yield
     # Фикстура, которая применяется только к test_create_new_courier_correct
-    # в тестовом модуле test_create_new_courier.py
+    # в тестовом модуле test_create_courier.py
     if request.node.name == "test_create_new_courier_correct":
         auth_user = AuthCourier()
         if account is not None:
